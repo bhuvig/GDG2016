@@ -5,6 +5,11 @@
 <title>VFurnish, Virtual Home Furnishing Application, Furnish</title>
 <!-- <meta name="keywords" content="free templates, website templates, CSS, XHTML" /> -->
 <meta name="description" content="VFurnish - The Virtual Home Furnishing Application" />
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript">
 function clearText(field)
@@ -12,6 +17,19 @@ function clearText(field)
     if (field.defaultValue == field.value) field.value = '';
     else if (field.value == '') field.value = field.defaultValue;
 }
+</script>
+<script>
+function fetch()
+{
+    var get = document.getElementById("get").value;
+    document.getElementById("put").value = get;
+    //var regexp = /\#\w\w+\s?/g
+    document.getElementById("put").value = document.getElementById("put").value.replace("#", "");;
+
+    //window.alert(document.getElementById("put").value);
+    
+}
+
 </script>
 </head>
 <body>
@@ -26,11 +44,10 @@ function clearText(field)
             <ul>
                   <li><a href="index.html" class="last">Home</a></li>
                   <li><a href="furnish.html" class="current">Start Furnishing</a></li>
-                  <li><a href="360.html">360-degrees</a></li>
                  <!--  <li><a href="http://www.templatemo.com/page/2">Gallery</a></li>
                   <li><a href="#">Company</a></li> -->
                   <li><a href="Contact.html" class="last">Contact</a></li>
-            </ul>    	
+            </ul>
 		</div> <!-- end of menu -->
     
     </div>  <!-- end of header -->
@@ -60,23 +77,32 @@ function clearText(field)
     	<div id="column_w530">
         	
             
-
+            <div class="row">
             <div class="header_02">What is your wall colour?</div>
             <form action="wall.php" method="post">
-            <p class="em_text">   Hex Color(start without hash): <input type="text" name="color" value="ffffff">
-             
+            <p class="em_text">   
+                <div class="form-group col-sm-3">
+                <label for="color">Color:</label>
+                <input type="color" class="form-control" id="get" onchange="fetch()" value="ffffff">
+                <br>
+                <input type="text" class="form-control" name="color" id="put" /><br>
+                </div>
             </p>
-            
             <div class="header_02">Wall dimensions?</div>
-            
-            <p class="em_text">   Length(in feet):  <input type="float" name="Length" value="1"><br>
-            Breadth(in feet): <input type="float" name="Breadth" value="1"><br>
+            <div class="form-group col-sm-3">
+            <label for="Length">Length:</label>
+            <input type="float" name="Length" class="form-control" value="2"><br>
+            <label for="Breadth">Breadth:</label>
+            <input type="float" name="Breadth" class="form-control" value="2"><br>
+            <div class="form-group">
             <br>
             <br>
-
-			<input type="submit" class="button_01" >
+            <div class="form-group">
+			<button type="submit" class="class="btn btn-default"">Submit</button>
+            </div>
+            <input type="reset">
             </form>
-            
+            </div>
             <!-- <div class="margin_bottom_20"></div>
             
 
